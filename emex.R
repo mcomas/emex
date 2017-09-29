@@ -89,13 +89,13 @@ GIRONA = c("Alt Empordà", "Baix Empordà", "Cerdanya",
            "Garrotxa", "Gironès", "Pla de l'Estany", "Ripollès",
            "Selva")
 BARCELONA = c("Anoia", "Alt Camp", "Alt Penedès", "Bages", "Baix Llobregat",
-              "Barcelonès", "Berguedà", "Garraf", "Maresme", "Osona",
+              "Barcelonès", "Berguedà", "Garraf", "Maresme", "Moianès", "Osona",
               "Vallès Occidental", "Vallès Oriental")
 TARRAGONA = c("Baix Penedès", "Baix Ebre", "Baix Camp", "Conca de Barberà",
               "Montsià", "Priorat", "Ribera d'Ebre", "Tarragonès", "Terra Alta")
 LLEIDA = c("Alt Urgell", "Alta Ribagorça", "Garrigues", "Noguera",
            "Pallars Jussà", "Pallars Sobirà", "Pla d'Urgell",
-           "Segarra", "Segrià", "Solsonès", "Urgell", "Val d'Aran")
+           "Segarra", "Segrià", "Solsonès", "Urgell", "Val d'Aran", "Aran")
 
 vrs = names(emex.data)
 vrs = c(vrs[1:2], 'prov', vrs[-(1:2)])
