@@ -14,8 +14,14 @@ nom = xml_text( cols )
 # S'obtenen les dades del servidor d'idescat. 
 # IMPORTANT: Es requereix de connecció a Internet
 id.info = lapply(ids, function(id){
+  print(id)
   xml.url = sprintf('http://api.idescat.cat/emex/v1/dades.xml?id=%s', id)
-  read_xml(xml.url)
+  rr = NULL
+  while(is.null(rr)){
+    rr = tryCatch({ read_xml(xml.url) }, error = function(e) NULL )
+  }
+  print(rr)
+  rr
 })
 
 
@@ -36,11 +42,10 @@ all_fields = Reduce(`union`, fields)
 
 df_all_fields = lapply(id.info[scheme == 'mun'], function(id){
   df_info = xml_find_all(id, "/fitxes/cols/col/child::text()") %>% xml_text %>% as.list %>% 
-    data_frame() %>% 
-    setNames(c('mun', 'com', 'ca'))
+    setNames(c('mun', 'com', 'ca')) %>% as_tibble()
   df_fields = lapply(all_fields, function(field) get_field(id, field)) %>% 
-    data_frame() %>% 
-    setNames(all_fields)
+    setNames(all_fields) %>% 
+    as_tibble()
   bind_cols(df_info, df_fields)
 }) %>% bind_rows
 
