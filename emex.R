@@ -106,7 +106,7 @@ emex.data = emex.data %>%
     prov = if_else(com %in% GIRONA, 'Girona', prov),
     prov = if_else(com %in% BARCELONA, 'Barcelona', prov),
     prov = if_else(com %in% TARRAGONA, 'Tarragona', prov),
-    prov = if_else(com %in% LLEIDA, 'LLeida', prov)
+    prov = if_else(com %in% LLEIDA, 'Lleida', prov)
   ) %>%
   select_(.dots = vrs)
 
